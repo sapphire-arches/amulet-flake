@@ -17,13 +17,13 @@
         rec {
           amulet-nbt = pyPackages.buildPythonPackage {
             pname = "amulet-nbt";
-            version = "1.0.4a";
+            version = "1.1.0a0";
 
             src = prev.fetchFromGitHub {
               owner = "Amulet-Team";
               repo = "Amulet-NBT";
-              rev = "676e18c22abe398b524e2fd6da316b4e97936b8d";
-              sha256 = "sha256-ogCjZmaJufRXD9rJLlsVQ7k/HRdMvK5Z4n/+BY/a6PQ=";
+              rev = "5ffa0ae797525101ed2012f03c72671a64dfb8c7";
+              sha256 = "sha256-3DQ1DCNMgWRTWDuhn1+fOmUfAb23EART+YAH7mDrrs8=";
             };
 
             doCheck = false;
@@ -33,17 +33,21 @@
             buildInputs = with pyPackages; [
               numpy
             ];
+
+            patches = [
+              ./fix-amulet-nbt-build.patch
+            ];
           };
 
           pymctranslate = pyPackages.buildPythonPackage {
             pname = "pymctranslate";
-            version = "1.0.12";
+            version = "1.1.0b1";
 
             src = prev.fetchFromGitHub {
               owner = "gentlegiantJGC";
               repo = "PyMCTranslate";
-              rev = "bac6952dc2e3ea17690a49f04ee89279561c719e";
-              sha256 = "sha256-jdYXuSDSYjqx4ZAtQtfn3JUvKUl5pL+F639BAFFITw4=";
+              rev = "3a08dfb9eede57f16e6da67bddd91ce3c74e2ab3";
+              sha256 = "sha256-+uMZvjYl8zi87ID3bGNzrlVKFEIgUlhR1CRVVebvDKw=";
             };
 
             doCheck = false;
@@ -56,13 +60,13 @@
 
           amulet-core = pyPackages.buildPythonPackage {
             pname = "amulet-core";
-            version = "1.6.0a3";
+            version = "1.7.0a1";
 
             src = prev.fetchFromGitHub {
               owner = "Amulet-Team";
               repo = "Amulet-Core";
-              rev = "93a71cc7be72a93bfd5bfed3e6944571a933ef66";
-              sha256 = "sha256-h5Ge8xbhI+VqpKwMbkn0k6iQYn9+hUNbOqGn2Wqg1RU=";
+              rev = "fad173683012f95cc892afd16dc2a95ee7c4697f";
+              sha256 = "sha256-6Tl7LPbqC45FmjZqJKVgpY6WKv6MWl0gzksRXN0jXs4=";
             };
 
             nativeBuildInputs = [ pyPackages.cython ];
@@ -93,7 +97,11 @@
           };
         in
         {
-          packages = pkgs.amulet-core;
+          packages = {
+            amulet-nbt = pkgs.amulet-nbt;
+            amulet-core = pkgs.amulet-core;
+            pymctranslate = pkgs.pymctranslate;
+          };
           defaultPackage = pkgs.amulet-core;
         }
       )

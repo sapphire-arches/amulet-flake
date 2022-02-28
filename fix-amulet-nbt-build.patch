@@ -1,0 +1,10 @@
+diff --git a/amulet_nbt/string.pyx b/amulet_nbt/string.pyx
+index 647c932..eb588ad 100644
+--- a/amulet_nbt/string.pyx
++++ b/amulet_nbt/string.pyx
+@@ -1,4 +1,4 @@
+-from typing import Iterator, Any, List
++from typing import Iterable, Iterator, Any, List
+ from io import BytesIO
+ from copy import deepcopy
+ import sys
