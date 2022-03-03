@@ -1,5 +1,493 @@
+diff --git a/amulet_nbt/array.pyx b/amulet_nbt/array.pyx
+index 183f495..e4a50e0 100644
+--- a/amulet_nbt/array.pyx
++++ b/amulet_nbt/array.pyx
+@@ -309,219 +309,165 @@ cdef class BaseArrayTag(BaseMutableTag):
+     
+     def all(self, *args, **kwargs):
+         return self.value_.all(*args, **kwargs)
+-    all.__doc__ = ndarray.all.__doc__
+     
+     def any(self, *args, **kwargs):
+         return self.value_.any(*args, **kwargs)
+-    any.__doc__ = ndarray.any.__doc__
+     
+     def argmax(self, *args, **kwargs):
+         return self.value_.argmax(*args, **kwargs)
+-    argmax.__doc__ = ndarray.argmax.__doc__
+     
+     def argmin(self, *args, **kwargs):
+         return self.value_.argmin(*args, **kwargs)
+-    argmin.__doc__ = ndarray.argmin.__doc__
+     
+     def argpartition(self, *args, **kwargs):
+         return self.value_.argpartition(*args, **kwargs)
+-    argpartition.__doc__ = ndarray.argpartition.__doc__
+     
+     def argsort(self, *args, **kwargs):
+         return self.value_.argsort(*args, **kwargs)
+-    argsort.__doc__ = ndarray.argsort.__doc__
+     
+     def astype(self, *args, **kwargs):
+         return self.value_.astype(*args, **kwargs)
+-    astype.__doc__ = ndarray.astype.__doc__
+     
+     def byteswap(self, *args, **kwargs):
+         return self.value_.byteswap(*args, **kwargs)
+-    byteswap.__doc__ = ndarray.byteswap.__doc__
+     
+     def choose(self, *args, **kwargs):
+         return self.value_.choose(*args, **kwargs)
+-    choose.__doc__ = ndarray.choose.__doc__
+     
+     def clip(self, *args, **kwargs):
+         return self.value_.clip(*args, **kwargs)
+-    clip.__doc__ = ndarray.clip.__doc__
+     
+     def compress(self, *args, **kwargs):
+         return self.value_.compress(*args, **kwargs)
+-    compress.__doc__ = ndarray.compress.__doc__
+     
+     def conj(self, *args, **kwargs):
+         return self.value_.conj(*args, **kwargs)
+-    conj.__doc__ = ndarray.conj.__doc__
+     
+     def conjugate(self, *args, **kwargs):
+         return self.value_.conjugate(*args, **kwargs)
+-    conjugate.__doc__ = ndarray.conjugate.__doc__
+     
+     def cumprod(self, *args, **kwargs):
+         return self.value_.cumprod(*args, **kwargs)
+-    cumprod.__doc__ = ndarray.cumprod.__doc__
+     
+     def cumsum(self, *args, **kwargs):
+         return self.value_.cumsum(*args, **kwargs)
+-    cumsum.__doc__ = ndarray.cumsum.__doc__
+     
+     def diagonal(self, *args, **kwargs):
+         return self.value_.diagonal(*args, **kwargs)
+-    diagonal.__doc__ = ndarray.diagonal.__doc__
+     
+     def dot(self, *args, **kwargs):
+         return self.value_.dot(*args, **kwargs)
+-    dot.__doc__ = ndarray.dot.__doc__
+     
+     def dump(self, *args, **kwargs):
+         return self.value_.dump(*args, **kwargs)
+-    dump.__doc__ = ndarray.dump.__doc__
+     
+     def dumps(self, *args, **kwargs):
+         return self.value_.dumps(*args, **kwargs)
+-    dumps.__doc__ = ndarray.dumps.__doc__
+     
+     def fill(self, *args, **kwargs):
+         return self.value_.fill(*args, **kwargs)
+-    fill.__doc__ = ndarray.fill.__doc__
+     
+     def flatten(self, *args, **kwargs):
+         return self.value_.flatten(*args, **kwargs)
+-    flatten.__doc__ = ndarray.flatten.__doc__
+     
+     def getfield(self, *args, **kwargs):
+         return self.value_.getfield(*args, **kwargs)
+-    getfield.__doc__ = ndarray.getfield.__doc__
+     
+     def item(self, *args, **kwargs):
+         return self.value_.item(*args, **kwargs)
+-    item.__doc__ = ndarray.item.__doc__
+     
+     def itemset(self, *args, **kwargs):
+         return self.value_.itemset(*args, **kwargs)
+-    itemset.__doc__ = ndarray.itemset.__doc__
+     
+     def max(self, *args, **kwargs):
+         return self.value_.max(*args, **kwargs)
+-    max.__doc__ = ndarray.max.__doc__
+     
+     def mean(self, *args, **kwargs):
+         return self.value_.mean(*args, **kwargs)
+-    mean.__doc__ = ndarray.mean.__doc__
+     
+     def min(self, *args, **kwargs):
+         return self.value_.min(*args, **kwargs)
+-    min.__doc__ = ndarray.min.__doc__
+     
+     def newbyteorder(self, *args, **kwargs):
+         return self.value_.newbyteorder(*args, **kwargs)
+-    newbyteorder.__doc__ = ndarray.newbyteorder.__doc__
+     
+     def nonzero(self, *args, **kwargs):
+         return self.value_.nonzero(*args, **kwargs)
+-    nonzero.__doc__ = ndarray.nonzero.__doc__
+     
+     def partition(self, *args, **kwargs):
+         return self.value_.partition(*args, **kwargs)
+-    partition.__doc__ = ndarray.partition.__doc__
+     
+     def prod(self, *args, **kwargs):
+         return self.value_.prod(*args, **kwargs)
+-    prod.__doc__ = ndarray.prod.__doc__
+     
+     def ptp(self, *args, **kwargs):
+         return self.value_.ptp(*args, **kwargs)
+-    ptp.__doc__ = ndarray.ptp.__doc__
+     
+     def put(self, *args, **kwargs):
+         return self.value_.put(*args, **kwargs)
+-    put.__doc__ = ndarray.put.__doc__
+     
+     def ravel(self, *args, **kwargs):
+         return self.value_.ravel(*args, **kwargs)
+-    ravel.__doc__ = ndarray.ravel.__doc__
+     
+     def repeat(self, *args, **kwargs):
+         return self.value_.repeat(*args, **kwargs)
+-    repeat.__doc__ = ndarray.repeat.__doc__
+     
+     def reshape(self, *args, **kwargs):
+         return self.value_.reshape(*args, **kwargs)
+-    reshape.__doc__ = ndarray.reshape.__doc__
+     
+     def round(self, *args, **kwargs):
+         return self.value_.round(*args, **kwargs)
+-    round.__doc__ = ndarray.round.__doc__
+     
+     def searchsorted(self, *args, **kwargs):
+         return self.value_.searchsorted(*args, **kwargs)
+-    searchsorted.__doc__ = ndarray.searchsorted.__doc__
+     
+     def setfield(self, *args, **kwargs):
+         return self.value_.setfield(*args, **kwargs)
+-    setfield.__doc__ = ndarray.setfield.__doc__
+     
+     def setflags(self, *args, **kwargs):
+         return self.value_.setflags(*args, **kwargs)
+-    setflags.__doc__ = ndarray.setflags.__doc__
+     
+     def sort(self, *args, **kwargs):
+         return self.value_.sort(*args, **kwargs)
+-    sort.__doc__ = ndarray.sort.__doc__
+     
+     def squeeze(self, *args, **kwargs):
+         return self.value_.squeeze(*args, **kwargs)
+-    squeeze.__doc__ = ndarray.squeeze.__doc__
+     
+     def std(self, *args, **kwargs):
+         return self.value_.std(*args, **kwargs)
+-    std.__doc__ = ndarray.std.__doc__
+     
+     def sum(self, *args, **kwargs):
+         return self.value_.sum(*args, **kwargs)
+-    sum.__doc__ = ndarray.sum.__doc__
+     
+     def swapaxes(self, *args, **kwargs):
+         return self.value_.swapaxes(*args, **kwargs)
+-    swapaxes.__doc__ = ndarray.swapaxes.__doc__
+     
+     def take(self, *args, **kwargs):
+         return self.value_.take(*args, **kwargs)
+-    take.__doc__ = ndarray.take.__doc__
+     
+     def tobytes(self, *args, **kwargs):
+         return self.value_.tobytes(*args, **kwargs)
+-    tobytes.__doc__ = ndarray.tobytes.__doc__
+     
+     def tofile(self, *args, **kwargs):
+         return self.value_.tofile(*args, **kwargs)
+-    tofile.__doc__ = ndarray.tofile.__doc__
+     
+     def tolist(self, *args, **kwargs):
+         return self.value_.tolist(*args, **kwargs)
+-    tolist.__doc__ = ndarray.tolist.__doc__
+     
+     def tostring(self, *args, **kwargs):
+         return self.value_.tostring(*args, **kwargs)
+-    tostring.__doc__ = ndarray.tostring.__doc__
+     
+     def trace(self, *args, **kwargs):
+         return self.value_.trace(*args, **kwargs)
+-    trace.__doc__ = ndarray.trace.__doc__
+     
+     def transpose(self, *args, **kwargs):
+         return self.value_.transpose(*args, **kwargs)
+-    transpose.__doc__ = ndarray.transpose.__doc__
+     
+     def var(self, *args, **kwargs):
+         return self.value_.var(*args, **kwargs)
+-    var.__doc__ = ndarray.var.__doc__
+     
+     def view(self, *args, **kwargs):
+         return self.value_.view(*args, **kwargs)
+-    view.__doc__ = ndarray.view.__doc__
+     
+     def __str__(BaseArrayTag self):
+         return str(self.value_)
+@@ -603,7 +549,6 @@ cdef class BaseArrayTag(BaseMutableTag):
+         ndarray.reshape : similar method
+         """
+         return tuple(self.value_.shape[i] for i in range(self.value_.ndim))
+-    # shape.__doc__ = numpy.ndarray.shape.__doc__
+ 
+     @property
+     def strides(self):
+@@ -666,7 +611,6 @@ cdef class BaseArrayTag(BaseMutableTag):
+         813
+         """
+         return tuple(self.value_.strides[i] for i in range(self.value_.ndim))
+-    # strides.__doc__ = numpy.ndarray.strides.__doc__
+ 
+     def resize(*args, **kwargs):
+         raise Exception("The TAG_Array classes are 1D arrays and cannot be resized in place. Try reshape to get a copy.")
+diff --git a/amulet_nbt/compound.pyx b/amulet_nbt/compound.pyx
+index 8b47747..8310272 100644
+--- a/amulet_nbt/compound.pyx
++++ b/amulet_nbt/compound.pyx
+@@ -41,31 +41,24 @@ cdef class CompoundTag(BaseMutableTag):
+ 
+     def get(self, key, default=None):
+         return self.value_.get(key, default)
+-    get.__doc__ = dict.get.__doc__
+     
+     def pop(self, *args, **kwargs):
+         return self.value_.pop(*args, **kwargs)
+-    pop.__doc__ = dict.pop.__doc__
+     
+     def popitem(self):
+         return self.value_.popitem()
+-    popitem.__doc__ = dict.popitem.__doc__
+     
+     def clear(self, *args, **kwargs):
+         return self.value_.clear(*args, **kwargs)
+-    clear.__doc__ = dict.clear.__doc__
+     
+     def keys(self, *args, **kwargs):
+         return self.value_.keys(*args, **kwargs)
+-    keys.__doc__ = dict.keys.__doc__
+     
+     def values(self, *args, **kwargs):
+         return self.value_.values(*args, **kwargs)
+-    values.__doc__ = dict.values.__doc__
+     
+     def items(self, *args, **kwargs):
+         return self.value_.items(*args, **kwargs)
+-    items.__doc__ = dict.items.__doc__
+     
+     def __str__(CompoundTag self):
+         return str(self.value_)
+@@ -114,7 +107,6 @@ cdef class CompoundTag(BaseMutableTag):
+         cdef CompoundTag compound = CompoundTag.__new__(CompoundTag)
+         compound.value_ = dict_value
+         return compound
+-    fromkeys.__func__.__doc__ = dict.fromkeys.__doc__
+ 
+     @staticmethod
+     cdef _check_dict(dict value):
+@@ -186,14 +178,12 @@ cdef class CompoundTag(BaseMutableTag):
+ 
+     def setdefault(CompoundTag self, str key not None, BaseTag value not None):
+         return self.value_.setdefault(key, value)
+-    setdefault.__doc__ = dict.setdefault.__doc__
+ 
+     def update(CompoundTag self, object other=(), **others):
+         cdef dict dict_other = dict(other)
+         dict_other.update(others)
+         CompoundTag._check_dict(dict_other)
+         self.value_.update(dict_other)
+-    update.__doc__ = dict.update.__doc__
+ 
+     def __delitem__(CompoundTag self, str key not None):
+         del self.value_[key]
+diff --git a/amulet_nbt/float.pyx b/amulet_nbt/float.pyx
+index 8994403..e805df0 100644
+--- a/amulet_nbt/float.pyx
++++ b/amulet_nbt/float.pyx
+@@ -27,15 +27,12 @@ cdef class FloatTag(BaseFloatTag):
+ 
+     def as_integer_ratio(self):
+         return self.value_.as_integer_ratio()
+-    as_integer_ratio.__doc__ = float.as_integer_ratio.__doc__
+     
+     def conjugate(self):
+         return self.value_.conjugate()
+-    conjugate.__doc__ = float.conjugate.__doc__
+     
+     def hex(self):
+         return self.value_.hex()
+-    hex.__doc__ = float.hex.__doc__
+     
+     @property
+     def imag(self):
+@@ -44,7 +41,6 @@ cdef class FloatTag(BaseFloatTag):
+     
+     def is_integer(self):
+         return self.value_.is_integer()
+-    is_integer.__doc__ = float.is_integer.__doc__
+     
+     @property
+     def real(self):
+diff --git a/amulet_nbt/int.pyx b/amulet_nbt/int.pyx
+index 78e3772..1141cbc 100644
+--- a/amulet_nbt/int.pyx
++++ b/amulet_nbt/int.pyx
+@@ -98,7 +98,6 @@ cdef class ByteTag(BaseIntTag):
+ 
+     def bit_length(self):
+         return self.value_.bit_length()
+-    bit_length.__doc__ = int.bit_length.__doc__
+     
+     @property
+     def denominator(self):
+@@ -122,16 +121,13 @@ cdef class ByteTag(BaseIntTag):
+     
+     def to_bytes(self, length, byteorder, *, object signed=False):
+         return self.value_.to_bytes(length, byteorder, signed=signed)
+-    to_bytes.__doc__ = int.to_bytes.__doc__
+     
+     if sys.version_info >= (3, 8):
+         def as_integer_ratio(self):
+             return self.value_.as_integer_ratio()
+-        as_integer_ratio.__doc__ = int.as_integer_ratio.__doc__
+ 
+     def conjugate(self):
+         return self.value_.conjugate()
+-    conjugate.__doc__ = int.conjugate.__doc__
+ 
+     def __str__(ByteTag self):
+         return str(self.value_)
+@@ -407,7 +403,6 @@ cdef class ShortTag(BaseIntTag):
+ 
+     def bit_length(self):
+         return self.value_.bit_length()
+-    bit_length.__doc__ = int.bit_length.__doc__
+     
+     @property
+     def denominator(self):
+@@ -431,16 +426,13 @@ cdef class ShortTag(BaseIntTag):
+     
+     def to_bytes(self, length, byteorder, *, object signed=False):
+         return self.value_.to_bytes(length, byteorder, signed=signed)
+-    to_bytes.__doc__ = int.to_bytes.__doc__
+     
+     if sys.version_info >= (3, 8):
+         def as_integer_ratio(self):
+             return self.value_.as_integer_ratio()
+-        as_integer_ratio.__doc__ = int.as_integer_ratio.__doc__
+ 
+     def conjugate(self):
+         return self.value_.conjugate()
+-    conjugate.__doc__ = int.conjugate.__doc__
+ 
+     def __str__(ShortTag self):
+         return str(self.value_)
+@@ -716,7 +708,6 @@ cdef class IntTag(BaseIntTag):
+ 
+     def bit_length(self):
+         return self.value_.bit_length()
+-    bit_length.__doc__ = int.bit_length.__doc__
+     
+     @property
+     def denominator(self):
+@@ -740,16 +731,13 @@ cdef class IntTag(BaseIntTag):
+     
+     def to_bytes(self, length, byteorder, *, object signed=False):
+         return self.value_.to_bytes(length, byteorder, signed=signed)
+-    to_bytes.__doc__ = int.to_bytes.__doc__
+     
+     if sys.version_info >= (3, 8):
+         def as_integer_ratio(self):
+             return self.value_.as_integer_ratio()
+-        as_integer_ratio.__doc__ = int.as_integer_ratio.__doc__
+ 
+     def conjugate(self):
+         return self.value_.conjugate()
+-    conjugate.__doc__ = int.conjugate.__doc__
+ 
+     def __str__(IntTag self):
+         return str(self.value_)
+@@ -1025,7 +1013,6 @@ cdef class LongTag(BaseIntTag):
+ 
+     def bit_length(self):
+         return self.value_.bit_length()
+-    bit_length.__doc__ = int.bit_length.__doc__
+     
+     @property
+     def denominator(self):
+@@ -1049,16 +1036,13 @@ cdef class LongTag(BaseIntTag):
+     
+     def to_bytes(self, length, byteorder, *, object signed=False):
+         return self.value_.to_bytes(length, byteorder, signed=signed)
+-    to_bytes.__doc__ = int.to_bytes.__doc__
+     
+     if sys.version_info >= (3, 8):
+         def as_integer_ratio(self):
+             return self.value_.as_integer_ratio()
+-        as_integer_ratio.__doc__ = int.as_integer_ratio.__doc__
+ 
+     def conjugate(self):
+         return self.value_.conjugate()
+-    conjugate.__doc__ = int.conjugate.__doc__
+ 
+     def __str__(LongTag self):
+         return str(self.value_)
+diff --git a/amulet_nbt/list.pyx b/amulet_nbt/list.pyx
+index be1c471..8b95c15 100644
+--- a/amulet_nbt/list.pyx
++++ b/amulet_nbt/list.pyx
+@@ -37,31 +37,24 @@ cdef class ListTag(BaseMutableTag):
+ 
+     def clear(self):
+         return self.value_.clear()
+-    clear.__doc__ = list.clear.__doc__
+     
+     def count(self, value):
+         return self.value_.count(value)
+-    count.__doc__ = list.count.__doc__
+     
+     def index(self, value, start=0, stop=9223372036854775807):
+         return self.value_.index(value, start, stop)
+-    index.__doc__ = list.index.__doc__
+     
+     def pop(self, index=-1):
+         return self.value_.pop(index)
+-    pop.__doc__ = list.pop.__doc__
+     
+     def remove(self, value):
+         return self.value_.remove(value)
+-    remove.__doc__ = list.remove.__doc__
+     
+     def reverse(self):
+         return self.value_.reverse()
+-    reverse.__doc__ = list.reverse.__doc__
+     
+     def sort(self, *, key=None, reverse=False):
+         return self.value_.sort(key=key, reverse=reverse)
+-    sort.__doc__ = list.sort.__doc__
+     
+     def __str__(ListTag self):
+         return str(self.value_)
+@@ -185,7 +178,6 @@ cdef class ListTag(BaseMutableTag):
+     def append(ListTag self, BaseTag value not None) -> None:
+         self._check_tag(value)
+         self.value_.append(value)
+-    append.__doc__ = list.append.__doc__
+ 
+     def copy(ListTag self):
+         """Return a shallow copy of the class"""
+@@ -196,12 +188,10 @@ cdef class ListTag(BaseMutableTag):
+         self._check_tag_iterable(other)
+         self.value_.extend(other)
+         return self
+-    extend.__doc__ = list.extend.__doc__
+ 
+     def insert(ListTag self, object index, BaseTag value not None):
+         self._check_tag(value)
+         self.value_.insert(index, value)
+-    insert.__doc__ = list.insert.__doc__
+ 
+     def __mul__(ListTag self, other):
+         return self.value_ * other
 diff --git a/amulet_nbt/string.pyx b/amulet_nbt/string.pyx
-index 647c932..eb588ad 100644
+index 647c932..5f459b6 100644
 --- a/amulet_nbt/string.pyx
 +++ b/amulet_nbt/string.pyx
 @@ -1,4 +1,4 @@
@@ -8,3 +496,208 @@ index 647c932..eb588ad 100644
  from io import BytesIO
  from copy import deepcopy
  import sys
+@@ -24,167 +24,126 @@ cdef class StringTag(BaseImmutableTag):
+ 
+     def capitalize(self):
+         return self.value_.capitalize()
+-    capitalize.__doc__ = str.capitalize.__doc__
+     
+     def casefold(self):
+         return self.value_.casefold()
+-    casefold.__doc__ = str.casefold.__doc__
+     
+     def center(self, width, fillchar=' '):
+         return self.value_.center(width, fillchar)
+-    center.__doc__ = str.center.__doc__
+     
+     def count(self, *args, **kwargs):
+         return self.value_.count(*args, **kwargs)
+-    count.__doc__ = str.count.__doc__
+     
+     def encode(self, encoding='utf-8', errors='strict'):
+         return self.value_.encode(encoding, errors)
+-    encode.__doc__ = str.encode.__doc__
+     
+     def endswith(self, *args, **kwargs):
+         return self.value_.endswith(*args, **kwargs)
+-    endswith.__doc__ = str.endswith.__doc__
+     
+     def expandtabs(self, tabsize=8):
+         return self.value_.expandtabs(tabsize)
+-    expandtabs.__doc__ = str.expandtabs.__doc__
+     
+     def find(self, *args, **kwargs):
+         return self.value_.find(*args, **kwargs)
+-    find.__doc__ = str.find.__doc__
+     
+     def format(self, *args, **kwargs):
+         return self.value_.format(*args, **kwargs)
+-    format.__doc__ = str.format.__doc__
+     
+     def format_map(self, *args, **kwargs):
+         return self.value_.format_map(*args, **kwargs)
+-    format_map.__doc__ = str.format_map.__doc__
+     
+     def index(self, *args, **kwargs):
+         return self.value_.index(*args, **kwargs)
+-    index.__doc__ = str.index.__doc__
+     
+     def isalnum(self):
+         return self.value_.isalnum()
+-    isalnum.__doc__ = str.isalnum.__doc__
+     
+     def isalpha(self):
+         return self.value_.isalpha()
+-    isalpha.__doc__ = str.isalpha.__doc__
+     
+     def isascii(self):
+         return self.value_.isascii()
+-    isascii.__doc__ = str.isascii.__doc__
+     
+     def isdecimal(self):
+         return self.value_.isdecimal()
+-    isdecimal.__doc__ = str.isdecimal.__doc__
+     
+     def isdigit(self):
+         return self.value_.isdigit()
+-    isdigit.__doc__ = str.isdigit.__doc__
+     
+     def isidentifier(self):
+         return self.value_.isidentifier()
+-    isidentifier.__doc__ = str.isidentifier.__doc__
+     
+     def islower(self):
+         return self.value_.islower()
+-    islower.__doc__ = str.islower.__doc__
+     
+     def isnumeric(self):
+         return self.value_.isnumeric()
+-    isnumeric.__doc__ = str.isnumeric.__doc__
+     
+     def isprintable(self):
+         return self.value_.isprintable()
+-    isprintable.__doc__ = str.isprintable.__doc__
+     
+     def isspace(self):
+         return self.value_.isspace()
+-    isspace.__doc__ = str.isspace.__doc__
+     
+     def istitle(self):
+         return self.value_.istitle()
+-    istitle.__doc__ = str.istitle.__doc__
+     
+     def isupper(self):
+         return self.value_.isupper()
+-    isupper.__doc__ = str.isupper.__doc__
+     
+     def ljust(self, width, fillchar=' '):
+         return self.value_.ljust(width, fillchar)
+-    ljust.__doc__ = str.ljust.__doc__
+     
+     def lower(self):
+         return self.value_.lower()
+-    lower.__doc__ = str.lower.__doc__
+     
+     def lstrip(self, chars=None):
+         return self.value_.lstrip(chars)
+-    lstrip.__doc__ = str.lstrip.__doc__
+     
+     def replace(self, old, new, count=-1):
+         return self.value_.replace(old, new, count)
+-    replace.__doc__ = str.replace.__doc__
+     
+     def rfind(self, *args, **kwargs):
+         return self.value_.rfind(*args, **kwargs)
+-    rfind.__doc__ = str.rfind.__doc__
+     
+     def rindex(self, *args, **kwargs):
+         return self.value_.rindex(*args, **kwargs)
+-    rindex.__doc__ = str.rindex.__doc__
+     
+     def rjust(self, width, fillchar=' '):
+         return self.value_.rjust(width, fillchar)
+-    rjust.__doc__ = str.rjust.__doc__
+     
+     def rsplit(self, sep=None, maxsplit=-1):
+         return self.value_.rsplit(sep, maxsplit)
+-    rsplit.__doc__ = str.rsplit.__doc__
+     
+     def rstrip(self, chars=None):
+         return self.value_.rstrip(chars)
+-    rstrip.__doc__ = str.rstrip.__doc__
+     
+     def split(self, sep=None, maxsplit=-1):
+         return self.value_.split(sep, maxsplit)
+-    split.__doc__ = str.split.__doc__
+     
+     def splitlines(self, keepends=False):
+         return self.value_.splitlines(keepends)
+-    splitlines.__doc__ = str.splitlines.__doc__
+     
+     def startswith(self, *args, **kwargs):
+         return self.value_.startswith(*args, **kwargs)
+-    startswith.__doc__ = str.startswith.__doc__
+     
+     def strip(self, chars=None):
+         return self.value_.strip(chars)
+-    strip.__doc__ = str.strip.__doc__
+     
+     def swapcase(self):
+         return self.value_.swapcase()
+-    swapcase.__doc__ = str.swapcase.__doc__
+     
+     def title(self):
+         return self.value_.title()
+-    title.__doc__ = str.title.__doc__
+     
+     def translate(self, table):
+         return self.value_.translate(table)
+-    translate.__doc__ = str.translate.__doc__
+     
+     def upper(self):
+         return self.value_.upper()
+-    upper.__doc__ = str.upper.__doc__
+     
+     def zfill(self, width):
+         return self.value_.zfill(width)
+-    zfill.__doc__ = str.zfill.__doc__
+     
+     def __str__(StringTag self):
+         return str(self.value_)
+@@ -229,24 +188,19 @@ cdef class StringTag(BaseImmutableTag):
+ 
+     def join(StringTag self, iterable: Iterable[str]) -> str:
+         return self.value_.join([str(s) for s in iterable])
+-    join.__doc__ = str.join.__doc__
+ 
+     def partition(StringTag self, sep):
+         return self.value_.partition(str(sep))
+-    partition.__doc__ = str.partition.__doc__
+ 
+     def rpartition(StringTag self, sep):
+         return self.value_.rpartition(str(sep))
+-    rpartition.__doc__ = str.rpartition.__doc__
+ 
+     if sys.version_info >= (3, 9):
+         def removeprefix(StringTag self, prefix: str) -> str:
+             return self.value_.removeprefix(prefix)
+-        removeprefix.__doc__ = str.removeprefix.__doc__
+ 
+         def removesuffix(StringTag self, suffix: str) -> str:
+             return self.value_.removesuffix(suffix)
+-        removesuffix.__doc__ = str.removesuffix.__doc__
+ 
+     maketrans = str.maketrans
+ 
+diff --git a/tools/tempita.py b/tools/tempita.py
+index 7e1846b..7fc912c 100644
+--- a/tools/tempita.py
++++ b/tools/tempita.py
+@@ -123,7 +123,6 @@ def gen_wrapper(
+                 (
+                     f"def {attr_name}({function_inputs}):",
+                     f"    return self.{wrapped_name}.{attr_name}({args})",
+-                    f"{attr_name}.__doc__ = {wrapped_dtype.__name__}.{attr_name}.__doc__",
+                     f"",
+                 )
+             )
