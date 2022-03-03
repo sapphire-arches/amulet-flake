@@ -30,7 +30,7 @@
 
             nativeBuildInputs = [ pyPackages.cython ];
 
-            buildInputs = with pyPackages; [
+            propagatedBuildInputs = with pyPackages; [
               numpy
             ];
 
@@ -52,7 +52,7 @@
 
             doCheck = false;
 
-            buildInputs = with prev.python37Packages; [
+            propagatedBuildInputs = with prev.python37Packages; [
               numpy
               amulet-nbt
             ];
@@ -71,7 +71,7 @@
 
             nativeBuildInputs = [ pyPackages.cython ];
 
-            buildInputs = with pyPackages; [
+            propagatedBuildInputs = with pyPackages; [
               numpy
               pymctranslate
               amulet-nbt
