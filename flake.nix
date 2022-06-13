@@ -10,11 +10,11 @@
     {
       overlay = final: prev:
         prev.lib.genAttrs [ "python39" "python310" ] (
-          pyVersion: ( prev.${pyVersion}.override (
+          pyVersion: (prev.${pyVersion}.override (
             let
               py = prev.${pyVersion};
             in
-              {
+            {
               packageOverrides = python-final: python-prev: rec {
                 amulet-nbt = py.pkgs.callPackage ./nix/amulet-nbt { };
                 pymctranslate = py.pkgs.callPackage ./nix/pymctranslate { inherit amulet-nbt; };
@@ -24,7 +24,7 @@
                 };
               };
             }
-            )
+          )
           )
         );
     } // (
