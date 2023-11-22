@@ -8,11 +8,11 @@
 
 buildPythonPackage rec {
   pname = "PyMCTranslate";
-  version = "1.2.1";
+  version = "1.2.20";
 
   src = fetchPypi {
     inherit pname version;
-    sha256 = "sha256-BW77IMpQM5WbqdM8ZYqcGU6v5fLVF08mG5VwDmiKxUM=";
+    sha256 = "sha256-APJRlAEuzjQoYt6NOSlOlUYiVdnQAZ1xAdlSH7pZ434=";
   };
 
   doCheck = false;

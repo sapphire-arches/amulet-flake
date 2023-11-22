@@ -9,14 +9,17 @@
   outputs = { self, nix, nixpkgs, flake-utils }:
     {
       overlay = final: prev:
-        prev.lib.genAttrs [ "python39" "python310" ] (
+        prev.lib.genAttrs [ "python310" "python311" ] (
           pyVersion: (prev.${pyVersion}.override (
             let
               py = prev.${pyVersion};
             in
             {
               packageOverrides = python-final: python-prev: rec {
-                amulet-nbt = py.pkgs.callPackage ./nix/amulet-nbt { };
+                versioneer_518 = py.pkgs.callPackage ./nix/versioneer_518/default.nix { };
+                amulet-nbt = py.pkgs.callPackage ./nix/amulet-nbt {
+                  inherit versioneer_518;
+                };
                 pymctranslate = py.pkgs.callPackage ./nix/pymctranslate { inherit amulet-nbt; };
                 amulet-core = py.pkgs.callPackage ./nix/amulet-core {
                   inherit amulet-nbt pymctranslate;
@@ -39,11 +42,12 @@
         in
         {
           packages = {
-            amulet-nbt = pkgs.python39Packages.amulet-nbt;
-            amulet-core = pkgs.python39Packages.amulet-core;
-            pymctranslate = pkgs.python39Packages.pymctranslate;
+            amulet-nbt = pkgs.python310Packages.amulet-nbt;
+            amulet-core = pkgs.python310Packages.amulet-core;
+            pymctranslate = pkgs.python310Packages.pymctranslate;
+            versioneer_518 = pkgs.python310Packages.versioneer_518;
           };
-          defaultPackage = pkgs.python39Packages.amulet-core;
+          defaultPackage = pkgs.python310Packages.amulet-core;
         }
       )
     );

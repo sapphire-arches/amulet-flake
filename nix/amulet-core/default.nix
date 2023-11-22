@@ -1,23 +1,29 @@
 { buildPythonPackage
-, lib
-, fetchPypi
 , amulet-nbt
-, cython
+, cython_3
+, fetchPypi
+, lib
 , numpy
 , portalocker
 , pymctranslate
+, setuptools
 }:
 
 buildPythonPackage rec {
   pname = "amulet-core";
-  version = "1.8.1";
+  version = "1.9.20";
 
   src = fetchPypi {
     inherit pname version;
-    sha256 = "sha256-FtFgHWjfao3AnAmiZC8BAG679ak+y+LQXYwSHxUTAJc=";
+    sha256 = "sha256-n2fes4PdXVny1tUh++mRww8lqZW2xcqWOgYCxGBVSMI=";
   };
 
-  nativeBuildInputs = [ cython ];
+  pyproject = true;
+
+  nativeBuildInputs = [
+    cython_3
+    setuptools
+  ];
 
   propagatedBuildInputs = [
     amulet-nbt
