@@ -1,12 +1,15 @@
 { buildPythonPackage
 , amulet-nbt
+, amulet-leveldb
 , cython_3
 , fetchPypi
 , lib
 , numpy
+, platformdirs
 , portalocker
 , pymctranslate
 , setuptools
+, mutf8
 }:
 
 buildPythonPackage rec {
@@ -27,12 +30,17 @@ buildPythonPackage rec {
 
   propagatedBuildInputs = [
     amulet-nbt
+    amulet-leveldb
     numpy
+    platformdirs
     portalocker
     pymctranslate
+    mutf8
   ];
 
-  doCheck = false;
+  # doCheck = false;
+
+  pythonImportCheck = [ "amulet" ];
 
   meta = with lib; {
     description = "A Python 3 library to read and write data from Minecraft's various save formats.";

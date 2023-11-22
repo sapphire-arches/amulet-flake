@@ -20,9 +20,12 @@
                 amulet-nbt = py.pkgs.callPackage ./nix/amulet-nbt {
                   inherit versioneer_518;
                 };
-                pymctranslate = py.pkgs.callPackage ./nix/pymctranslate { inherit amulet-nbt; };
+                amulet-leveldb = py.pkgs.callPackage ./nix/amulet-leveldb { };
+                pymctranslate = py.pkgs.callPackage ./nix/pymctranslate {
+                  inherit amulet-nbt;
+                  };
                 amulet-core = py.pkgs.callPackage ./nix/amulet-core {
-                  inherit amulet-nbt pymctranslate;
+                  inherit amulet-nbt amulet-leveldb pymctranslate;
                   portalocker = python-prev.portalocker;
                 };
               };
@@ -41,8 +44,18 @@
           };
         in
         {
+          devShell = pkgs.mkShell {
+            name = "amulet-flake-shell";
+
+            buildInputs = [
+              (pkgs.python310.withPackages (pypkgs: with pypkgs; [
+                amulet-core
+              ]))
+            ];
+          };
           packages = {
             amulet-nbt = pkgs.python310Packages.amulet-nbt;
+            amulet-leveldb = pkgs.python310Packages.amulet-leveldb;
             amulet-core = pkgs.python310Packages.amulet-core;
             pymctranslate = pkgs.python310Packages.pymctranslate;
             versioneer_518 = pkgs.python310Packages.versioneer_518;
