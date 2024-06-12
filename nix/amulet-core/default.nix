@@ -1,41 +1,52 @@
 { buildPythonPackage
-, amulet-nbt
-, amulet-leveldb
-, cython_3
 , fetchPypi
 , lib
+  # dependencies
+, amulet-leveldb
+, amulet-nbt
+, cython
+, mutf8
 , numpy
 , platformdirs
 , portalocker
 , pymctranslate
 , setuptools
-, mutf8
+, versioneer_518
+, python-lz4
 }:
 
 buildPythonPackage rec {
   pname = "amulet-core";
-  version = "1.9.20";
+  version = "1.9.22";
 
   src = fetchPypi {
-    inherit pname version;
-    sha256 = "sha256-n2fes4PdXVny1tUh++mRww8lqZW2xcqWOgYCxGBVSMI=";
+    inherit version;
+    pname = "amulet_core";
+    sha256 = "sha256-JGvMuweuY/obvXBTb1a8H2EEDEOPrMZaygXm8kd0uR8=";
   };
 
   pyproject = true;
 
   nativeBuildInputs = [
-    cython_3
+    cython
     setuptools
+    versioneer_518
   ];
 
-  propagatedBuildInputs = [
-    amulet-nbt
+  dependencies = [
     amulet-leveldb
+    amulet-nbt
+    mutf8
     numpy
     platformdirs
+    python-lz4
     portalocker
     pymctranslate
-    mutf8
+    versioneer_518
+  ];
+
+  patches = [
+    ./loosen-platformdirs.patch
   ];
 
   # doCheck = false;

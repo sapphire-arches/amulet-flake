@@ -16,12 +16,5 @@ buildPythonPackage rec {
 
   pyproject = true;
 
-  nativeBuildInputs = [
-    setuptools
-  ];
-
-  propagatedBuildInputs = [
-  ];
+  build-system = [ setuptools ];
 }
-
-

@@ -1,23 +1,33 @@
 { buildPythonPackage
 , lib
 , fetchPypi
+  # dependencies
+, setuptools
 , amulet-nbt
 , cython
 , numpy
+, versioneer
 }:
 
 buildPythonPackage rec {
   pname = "PyMCTranslate";
-  version = "1.2.20";
+  version = "1.2.23";
 
   src = fetchPypi {
-    inherit pname version;
-    sha256 = "sha256-APJRlAEuzjQoYt6NOSlOlUYiVdnQAZ1xAdlSH7pZ434=";
+    inherit version;
+    pname = "pymctranslate";
+    sha256 = "sha256-fdDT2FwQluD4hTBPQrHUEG9CBDbyrviQS2i+6vJfDag=";
   };
 
   doCheck = false;
 
-  propagatedBuildInputs = [
+  build-system = [
+    setuptools
+    cython
+    versioneer
+  ];
+
+  dependencies = [
     numpy
     amulet-nbt
   ];

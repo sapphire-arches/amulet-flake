@@ -1,35 +1,37 @@
 { buildPythonPackage
 , lib
 , fetchPypi
-, cython_3
+  # dependencies
+, cython
+, mutf8
 , numpy
-, versioneer_518
 , setuptools
+, versioneer_518
 }:
 
 buildPythonPackage rec {
   pname = "amulet-nbt";
-  version = "2.1.1";
+  version = "2.1.3";
 
   src = fetchPypi {
     inherit pname version;
-    sha256 = "sha256-SUTCUN5y8B4kd3HrkA++Zz/ugqWk4lpJ4Ehh6fN4KY8=";
+    sha256 = "sha256-qd5P4GgynHqSHwndTOw3wlwBrCq+tOEAAOguUm420Pw=";
   };
 
   pyproject = true;
 
   nativeBuildInputs = [
-    cython_3
-    setuptools
+    cython
   ];
 
-  propagatedBuildInputs = [
-    numpy
+  build-system = [
+    setuptools
     versioneer_518
   ];
 
-  patches = [
-    # ./fix-amulet-nbt-build.patch
+  dependencies = [
+    numpy
+    mutf8
   ];
 }
 

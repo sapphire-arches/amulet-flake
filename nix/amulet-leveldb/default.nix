@@ -1,20 +1,22 @@
 { buildPythonPackage
 , fetchPypi
 , lib
-# dependencies
-, cython_3
+  # dependencies
+, cython
 , numpy
 , setuptools
+, versioneer
 , zlib
 }:
 
 buildPythonPackage rec {
   pname = "amulet-leveldb";
-  version = "1.0.0b5";
+  version = "1.0.2";
 
   src = fetchPypi {
-    inherit pname version;
-    sha256 = "sha256-n8J8RgcoaQsZ0PkZpQQ5QigzlyikpwHedYU37uf9Kqs=";
+    inherit version;
+    pname = "amulet_leveldb";
+    sha256 = "sha256-s6pRHvcb9rxrIeljlb3tDzkrHcCT71jVU1Bn2Aq0FUE=";
   };
 
   pyproject = true;
@@ -23,12 +25,14 @@ buildPythonPackage rec {
     zlib
   ];
 
-  nativeBuildInputs = [
-    cython_3
+  build-system = [
+    cython
     setuptools
+    versioneer
   ];
 
-  propagatedBuildInputs = [
+  dependencies = [
     numpy
+    versioneer
   ];
 }

@@ -8,8 +8,8 @@
 
   outputs = { self, nix, nixpkgs, flake-utils }:
     {
-      overlay = final: prev:
-        prev.lib.genAttrs [ "python310" "python311" ] (
+      overlays.default = final: prev:
+        prev.lib.genAttrs [ "python310" "python311" "python312" ] (
           pyVersion: (prev.${pyVersion}.override (
             let
               py = prev.${pyVersion};
@@ -20,12 +20,14 @@
                 amulet-nbt = py.pkgs.callPackage ./nix/amulet-nbt {
                   inherit versioneer_518;
                 };
-                amulet-leveldb = py.pkgs.callPackage ./nix/amulet-leveldb { };
+                amulet-leveldb = py.pkgs.callPackage ./nix/amulet-leveldb {
+                  # versioneer = versioneer_518;
+                };
                 pymctranslate = py.pkgs.callPackage ./nix/pymctranslate {
                   inherit amulet-nbt;
-                  };
+                };
                 amulet-core = py.pkgs.callPackage ./nix/amulet-core {
-                  inherit amulet-nbt amulet-leveldb pymctranslate;
+                  inherit amulet-nbt amulet-leveldb pymctranslate versioneer_518;
                   portalocker = python-prev.portalocker;
                 };
               };
@@ -39,12 +41,12 @@
           pkgs = import nixpkgs {
             inherit system;
             overlays = [
-              self.overlay
+              self.overlays.default
             ];
           };
         in
         {
-          devShell = pkgs.mkShell {
+          devShells.default = pkgs.mkShell {
             name = "amulet-flake-shell";
 
             buildInputs = [
@@ -53,14 +55,14 @@
               ]))
             ];
           };
-          packages = {
-            amulet-nbt = pkgs.python310Packages.amulet-nbt;
-            amulet-leveldb = pkgs.python310Packages.amulet-leveldb;
-            amulet-core = pkgs.python310Packages.amulet-core;
-            pymctranslate = pkgs.python310Packages.pymctranslate;
-            versioneer_518 = pkgs.python310Packages.versioneer_518;
+          packages = rec {
+            amulet-nbt = pkgs.python312Packages.amulet-nbt;
+            amulet-leveldb = pkgs.python312Packages.amulet-leveldb;
+            amulet-core = pkgs.python312Packages.amulet-core;
+            pymctranslate = pkgs.python312Packages.pymctranslate;
+            versioneer_518 = pkgs.python312Packages.versioneer_518;
+            default = amulet-core;
           };
-          defaultPackage = pkgs.python310Packages.amulet-core;
         }
       )
     );
