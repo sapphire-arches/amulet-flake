@@ -33,6 +33,5 @@ buildPythonPackage rec {
 
   dependencies = [
     numpy
-    versioneer
   ];
 }

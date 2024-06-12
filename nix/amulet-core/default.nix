@@ -27,7 +27,7 @@ buildPythonPackage rec {
 
   pyproject = true;
 
-  nativeBuildInputs = [
+  build-system = [
     cython
     setuptools
     versioneer_518
@@ -42,7 +42,6 @@ buildPythonPackage rec {
     python-lz4
     portalocker
     pymctranslate
-    versioneer_518
   ];
 
   patches = [
